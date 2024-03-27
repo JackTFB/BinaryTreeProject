@@ -16,6 +16,15 @@ public class tree_tester
 
         root.InorderPrint();
 
+
+        System.out.println("\nSearching for the key 4:");
+        btnode_int result = root.searchBinaryTreeWithPath(4);
+        if (result != null) {
+            System.out.println("Successfully found the node with key 4.");
+        } else {
+            System.out.println("The node with key 4 was not found.");
+        }
+
     }
 
     

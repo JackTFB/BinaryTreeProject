@@ -61,6 +61,26 @@ public class btnode_int
             right.InorderPrint();
         }
     }
-
+    public btnode_int searchBinaryTreeWithPath(int key) {
+        System.out.println("Visiting node: " + data);
+    
+        if (this.data == key) {
+            System.out.println("Found node with key " + key);
+            return this;
+        }
+    
+        if (key < this.data) {
+            if (this.left != null) { 
+                return this.left.searchBinaryTreeWithPath(key);
+            }
+        } else { 
+            if (this.right != null) { 
+                return this.right.searchBinaryTreeWithPath(key);
+            }
+        }
+    
+        System.out.println("Key " + key + " not found in the tree.");
+        return null;
+    }
 
 }
