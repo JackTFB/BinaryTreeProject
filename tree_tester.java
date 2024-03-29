@@ -25,6 +25,37 @@ public class tree_tester
             System.out.println("The node with key 4 was not found.");
         }
 
+
+    int[] arr = {5, 3, 1, 9, 6, 4};
+
+    btnode_int tree = build_tree(arr);
+
+    tree.InorderPrint();
+    }
+
+    public static btnode_int build_tree(int[] arr) {
+        if (arr == null || arr.length == 0) return null;
+        btnode_int root = new btnode_int(arr[0]);
+        for (int i = 1; i < arr.length; i++) {
+            insertIntoBST(root, arr[i]);
+        }
+        return root;
+    }
+
+    public static void insertIntoBST(btnode_int node, int value) {
+        if (value < node.getData()) {
+            if (node.getLeft() == null) {
+                node.setLeft(new btnode_int(value));
+            } else {
+                insertIntoBST(node.getLeft(), value);
+            }
+        } else if (value > node.getData()) {
+            if (node.getRight() == null) {
+                node.setRight(new btnode_int(value));
+            } else {
+                insertIntoBST(node.getRight(), value);
+            }
+        }
     }
 
     
